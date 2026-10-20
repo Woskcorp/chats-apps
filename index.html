@@ -2,258 +2,205 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f8fa">
-  <title>CHATS</title>
-  <style>
-    :root {
-      --bg: #f7f8fa;
-      --panel: #ffffff;
-      --text: #17221d;
-      --muted: #78827d;
-      --accent: #17865b;
-      --line: #e8ece9;
-      --mine: #d9f8e8;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-    }
-
-    header {
-      padding: 24px 20px 16px;
-      background: var(--panel);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .brand {
-      font-size: 29px;
-      font-weight: 750;
-      letter-spacing: -1px;
-    }
-
-    .subtitle {
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      margin-top: 14px;
-      padding: 7px 11px;
-      border-radius: 20px;
-      background: #e5f8ed;
-      color: #176b45;
-      font-size: 12px;
-    }
-
-    .dot {
-      width: 7px;
-      height: 7px;
-      background: #21ad68;
-      border-radius: 50%;
-    }
-
-    main {
-      max-width: 600px;
-      margin: auto;
-      padding: 20px 16px 35px;
-    }
-
-    .section-title {
-      margin: 8px 4px 14px;
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 650;
-      text-transform: uppercase;
-      letter-spacing: .7px;
-    }
-
-    .empty {
-      padding: 30px 20px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      text-align: center;
-    }
-
-    .lock {
-      width: 58px;
-      height: 58px;
-      margin: 0 auto 15px;
-      display: grid;
-      place-items: center;
-      border-radius: 19px;
-      background: #e4f6ec;
-      color: var(--accent);
-      font-size: 27px;
-    }
-
-    h2 {
-      margin: 0 0 8px;
-      font-size: 19px;
-    }
-
-    p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
-    button {
-      border: 0;
-      border-radius: 13px;
-      padding: 13px 17px;
-      font-size: 14px;
-      font-weight: 650;
-      cursor: pointer;
-    }
-
-    .primary {
-      background: var(--accent);
-      color: white;
-      width: 100%;
-      margin-top: 12px;
-    }
-
-    .settings {
-      margin-top: 22px;
-      padding: 18px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-    }
-
-    .setting-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 13px 0;
-      border-bottom: 1px solid var(--line);
-      font-size: 14px;
-    }
-
-    .setting-row:last-child { border: 0; }
-
-    select {
-      max-width: 150px;
-      padding: 9px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: var(--panel);
-      color: var(--text);
-    }
-
-    .note {
-      margin-top: 18px;
-      font-size: 12px;
-      text-align: center;
-    }
-
-    body.dark {
-      --bg: #111714;
-      --panel: #1b231f;
-      --text: #eff7f1;
-      --muted: #a1ada5;
-      --line: #303b34;
-      --mine: #174d37;
-    }
-
-    body.dark .status {
-      background: #203d2d;
-      color: #b4f2cd;
-    }
-
-    body.dark .lock {
-      background: #203d2d;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f8fa">
+<title>CHATS</title>
+<style>
+:root {
+  --bg:#f5f6f8;--panel:#fff;--text:#17221d;
+  --muted:#78827d;--accent:#16845a;--line:#e6ebe8;
+  --mine:#d9f8e8;--other:#fff;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body.dark{--bg:#111714;--panel:#1b231f;--text:#eff7f1;
+--muted:#a1ada5;--accent:#43c58b;--line:#303b34;
+--mine:#174d37;--other:#252e29}
+header{background:var(--panel);padding:17px;
+border-bottom:1px solid var(--line)}
+.top{display:flex;justify-content:space-between;align-items:center}
+.brand{font-size:25px;font-weight:800;letter-spacing:-1px}
+button,select,input{font:inherit}
+button{cursor:pointer}
+.small{border:0;background:transparent;color:var(--accent);font-size:14px}
+main{max-width:600px;margin:auto;padding:16px}
+.card{background:var(--panel);border:1px solid var(--line);
+border-radius:18px;padding:16px;margin-bottom:14px}
+h2{font-size:18px;margin:0 0 8px}
+p{font-size:14px;line-height:1.5;color:var(--muted)}
+label{font-size:13px;color:var(--muted)}
+select{padding:9px;border:1px solid var(--line);
+border-radius:10px;background:var(--panel);color:var(--text)}
+.row{display:flex;align-items:center;justify-content:space-between;
+gap:10px;margin:12px 0}
+#conversation{display:none}
+.chathead{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.avatar{width:42px;height:42px;border-radius:50%;display:grid;
+place-items:center;background:#e0f5e9;color:#176b45;font-weight:700}
+#messages{display:flex;flex-direction:column;gap:9px;
+min-height:230px;max-height:42vh;overflow-y:auto;padding:8px 0}
+.bubble{max-width:84%;padding:11px 13px;border-radius:16px;
+font-size:15px;overflow-wrap:anywhere}
+.mine{align-self:flex-end;background:var(--mine);border-bottom-right-radius:5px}
+.theirs{align-self:flex-start;background:var(--other);
+border:1px solid var(--line);border-bottom-left-radius:5px}
+.time{display:block;font-size:10px;color:var(--muted);margin-top:5px}
+.composer{display:flex;gap:8px;align-items:center;
+border-top:1px solid var(--line);padding-top:12px}
+#message{min-width:0;flex:1;border:1px solid var(--line);
+border-radius:22px;padding:12px;background:var(--bg);color:var(--text)}
+.send{border:0;border-radius:50%;width:43px;height:43px;
+background:var(--accent);color:white;font-size:18px}
+.attach{border:0;background:transparent;color:var(--accent);font-size:20px}
+.primary{width:100%;padding:13px;border:0;border-radius:13px;
+background:var(--accent);color:white;font-weight:650}
+.note{font-size:12px;text-align:center}
+#preview{max-width:100%;border-radius:12px;margin-top:8px}
+</style>
 </head>
 <body>
-  <header>
-    <div class="brand">CHATS<span style="color:#17865b">.</span></div>
-    <div class="subtitle">Tu espacio. Tus conversaciones.</div>
-    <div class="status">
-      <span class="dot"></span>
-      Privacidad como prioridad
+<header>
+  <div class="top">
+    <div class="brand">CHATS<span style="color:var(--accent)">.</span></div>
+    <button class="small" id="theme">Cambiar tema</button>
+  </div>
+  <p style="margin-bottom:0">Tu espacio. Tus conversaciones.</p>
+</header>
+<main>
+  <section id="home" class="card">
+    <h2>Mensajes privados</h2>
+    <p>Una interfaz sencilla para conversaciones fugaces.</p>
+    <button class="primary" id="openChat">Abrir chat de prueba</button>
+  </section>
+
+  <section id="conversation" class="card">
+    <div class="chathead">
+      <div class="avatar">C</div>
+      <div>
+        <h2 style="margin:0">Conversación de prueba</h2>
+        <label>Demostración en este dispositivo</label>
+      </div>
+      <button class="small" id="back">Volver</button>
     </div>
-  </header>
 
-  <main>
-    <div class="section-title">Mensajes</div>
+    <div class="row">
+      <label for="timer">Borrar mensaje</label>
+      <select id="timer">
+        <option value="read">Al leer (simulado)</option>
+        <option value="5">5 segundos</option>
+        <option value="30">30 segundos</option>
+        <option value="60">1 minuto</option>
+      </select>
+    </div>
 
-    <section class="empty">
-      <div class="lock">⌑</div>
-      <h2>Todo empieza aquí</h2>
-      <p>
-        Tus conversaciones serán fugaces.
-        Sin historial permanente ni copias de seguridad.
-      </p>
-      <p>
-        Para conversar, ambas personas deberán estar
-        conectadas.
-      </p>
-      <button class="primary" id="newChat">
-        + Nueva conversación
-      </button>
-    </section>
+    <div id="messages" aria-live="polite"></div>
 
-    <section class="settings">
-      <h2>Personaliza CHATS</h2>
+    <div class="composer">
+      <button class="attach" id="photo" aria-label="Adjuntar foto">＋</button>
+      <input id="message" placeholder="Mensaje..." autocomplete="off">
+      <button class="send" id="send" aria-label="Enviar">↑</button>
+    </div>
+    <input id="file" type="file" accept="image/*,audio/*"
+      hidden>
+    <p class="note">Solo una demostración local. No envía mensajes a otras personas.</p>
+  </section>
 
-      <div class="setting-row">
-        <span>Apariencia</span>
-        <select id="theme">
-          <option value="light">Clara</option>
-          <option value="dark">Oscura</option>
-        </select>
-      </div>
+  <section class="card">
+    <h2>Privacidad</h2>
+    <p>Esta versión no tiene servidor ni mensajería real. Los mensajes de prueba solo aparecen en esta pantalla y se eliminan al cerrar el chat.</p>
+  </section>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+let expiryTimers = [];
 
-      <div class="setting-row">
-        <span>Desaparición</span>
-        <select id="timer">
-          <option value="read">Al leer</option>
-          <option value="5">5 segundos</option>
-          <option value="30">30 segundos</option>
-          <option value="60">1 minuto</option>
-        </select>
-      </div>
-    </section>
+$("theme").onclick = () => document.body.classList.toggle("dark");
 
-    <p class="note">
-      Prototipo visual · La mensajería real se integrará después.
-    </p>
-  </main>
+$("openChat").onclick = () => {
+  $("home").style.display = "none";
+  $("conversation").style.display = "block";
+};
 
-  <script>
-    const theme = document.getElementById("theme");
+function clearChat() {
+  expiryTimers.forEach(clearTimeout);
+  expiryTimers = [];
+  $("messages").replaceChildren();
+  $("file").value = "";
+  $("message").value = "";
+}
 
-    theme.addEventListener("change", () => {
-      document.body.classList.toggle(
-        "dark",
-        theme.value === "dark"
-      );
-    });
+$("back").onclick = () => {
+  clearChat();
+  $("conversation").style.display = "none";
+  $("home").style.display = "block";
+};
 
-    document.getElementById("newChat").addEventListener(
-      "click",
-      () => {
-        alert(
-          "CHATS: el sistema de conversaciones se conectará en el siguiente paso."
-        );
-      }
-    );
-  </script>
+function addMessage(content, mine = true, image = false) {
+  const bubble = document.createElement("div");
+  bubble.className = "bubble " + (mine ? "mine" : "theirs");
+
+  if (image) {
+    const img = document.createElement("img");
+    img.id = "preview";
+    img.alt = "Imagen adjunta de prueba";
+    img.src = content;
+    bubble.appendChild(img);
+  } else {
+    bubble.appendChild(document.createTextNode(content));
+  }
+
+  const time = document.createElement("span");
+  time.className = "time";
+  time.textContent = "Prueba · no enviado";
+  bubble.appendChild(time);
+  $("messages").appendChild(bubble);
+  $("messages").scrollTop = $("messages").scrollHeight;
+
+  const seconds = $("timer").value;
+  if (seconds !== "read") {
+    const id = setTimeout(() => bubble.remove(),
+      Number(seconds) * 1000);
+    expiryTimers.push(id);
+  }
+}
+
+function sendMessage() {
+  const value = $("message").value.trim();
+  if (!value) return;
+  addMessage(value);
+  $("message").value = "";
+  $("message").focus();
+}
+
+$("send").onclick = sendMessage;
+$("message").addEventListener("keydown", event => {
+  if (event.key === "Enter") sendMessage();
+});
+
+$("photo").onclick = () => $("file").click();
+
+$("file").onchange = () => {
+  const file = $("file").files[0];
+  if (!file) return;
+  if (!file.type.startsWith("image/") &&
+      !file.type.startsWith("audio/")) {
+    alert("Selecciona una imagen o un audio.");
+    return;
+  }
+  if (file.size > 10 * 1024 * 1024) {
+    alert("Para esta prueba, el archivo debe pesar menos de 10 MB.");
+    return;
+  }
+  if (file.type.startsWith("audio/")) {
+    addMessage("Audio seleccionado: " + file.name);
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = () => addMessage(reader.result, true, true);
+  reader.readAsDataURL(file);
+};
+</script>
 </body>
 </html>
